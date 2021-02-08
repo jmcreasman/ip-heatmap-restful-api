@@ -1,11 +1,18 @@
 'use strict'
 
+// Import DB Connection
+require("./config/db");
+
 // require express and bodyParser
 const  express = require("express");
 const  bodyParser = require("body-parser");
 
 // create express app
 const  app = express();
+
+// Import API route
+var routes = require('./api/routes/iplocationRoutes'); //importing route
+routes(app);
 
 // define port to run express app
 const  port = process.env.PORT || 3000;
