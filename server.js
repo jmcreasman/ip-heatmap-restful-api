@@ -23,11 +23,10 @@ app.use(bodyParser.json());
 
 // Add endpoint
 app.get('/', (req, res) => {
-res.send("Hello World");
+    res.send("Hello World");
 });
 
 // Listen to server
 app.listen(port, () => {
-
-console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });
