@@ -7,6 +7,6 @@ module.exports = function(app) {
 
 // get request for /iplocations endpoints
     app
-    .route("/iplocations/:lat")
+    .route("/iplocations")
     .get(iplocations.listAllIpLocations);
 };
