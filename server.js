@@ -10,6 +10,9 @@ const  bodyParser = require("body-parser");
 // create express app
 const  app = express();
 
+var cors = require('cors')
+app.use(cors())
+
 // Import API route
 var routes = require('./api/routes/iplocationRoutes'); //importing route
 routes(app);
