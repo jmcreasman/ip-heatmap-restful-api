@@ -11,5 +11,5 @@ exports.listAllIpLocations = (req, res) => {
             res.status(500).send(err);
         }
         res.status(200).json(locations);
-    }).limit( 150000 );
+    }).limit( 3000 );
 };
