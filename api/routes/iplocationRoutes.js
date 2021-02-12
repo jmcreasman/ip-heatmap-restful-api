@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = function(app) {
-    var iplocations = require('../controllers/iplocationController');
+    const iplocations = require('../controllers/iplocationController');
 
-// IPLocation Routes
+    // IPLocation Routes
 
-// get request for /iplocations endpoints
+    // get request for /iplocations endpoints
     app
     .route("/iplocations")
     .get(iplocations.listAllIpLocations);
