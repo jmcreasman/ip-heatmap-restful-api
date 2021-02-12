@@ -1,5 +1,11 @@
 const  IPLocation = require("../models/iplocationModel");
 
+// Generic error handler used by all endpoints.
+const handleError = (res, reason, message, code) => {
+    console.log("ERROR: " + reason);
+    res.status(code || 500).json({"error": message});
+}
+
 /**
  * Request IP address latitude and longitude geographic coordinates.
  * 
@@ -8,9 +14,9 @@ const  IPLocation = require("../models/iplocationModel");
 exports.listAllIpLocations = (req, res) => {
     IPLocation.find({}, (err, locations) => {
         if (err) {
-            handleError(res.status(500), err.message, "Failed to get locations");
+            handleError(res, err.message, "Failed to get locations");
         } else {
             res.status(200).json(locations);
         }
-    }).limit( 75000 );
+    }).limit( 10000 );
 };
