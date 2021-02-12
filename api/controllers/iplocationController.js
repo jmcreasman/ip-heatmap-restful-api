@@ -8,8 +8,9 @@ const  IPLocation = require("../models/iplocationModel");
 exports.listAllIpLocations = (req, res) => {
     IPLocation.find({}, (err, locations) => {
         if (err) {
-            res.status(500).send(err);
+            handleError(res.status(500), err.message, "Failed to get locations");
+        } else {
+            res.status(200).json(locations);
         }
-        res.status(200).json(locations);
     }).limit( 75000 );
 };
