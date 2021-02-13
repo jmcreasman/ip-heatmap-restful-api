@@ -11,7 +11,7 @@ const handleError = (res, reason, message, code) => {
  * 
  * Each object consists of - id: Object ID, latitude: number and longitude: number.
  */
-exports.listAllIpLocations = (req, res) => {
+exports.searchByLongitude = (req, res) => {
     let min = Number(req.query.minLon);
     let max = Number(req.query.maxLon);
 
@@ -22,4 +22,18 @@ exports.listAllIpLocations = (req, res) => {
             res.status(200).json(locations);
         }
     });
+
+    // let body = '';
+    // IPLocation.find({ latitude: { $gte : -90 , $lte : -85 } } ).
+    // cursor().
+    // on('data', (chunk) => {
+    //     body += chunk;
+    // }).
+    // on('end', () => {
+    //     // const data = JSON.stringify(body);
+    //     // console.log(data);
+    //     // res.status(200).json(data);
+    //     res.status(200).send(body);
+    //     console.log("done");
+    // });
 };
