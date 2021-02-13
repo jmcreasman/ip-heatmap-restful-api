@@ -8,5 +8,5 @@ module.exports = function(app) {
     // get request for /iplocations endpoints
     app
     .route("/iplocations")
-    .get(iplocations.listAllIpLocations);
+    .get(iplocations.searchByLongitude);
 };
