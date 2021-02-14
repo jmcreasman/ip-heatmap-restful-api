@@ -1,11 +1,5 @@
 const  IPLocation = require("../models/iplocationModel");
 
-// Generic error handler used by all future endpoints.
-const handleError = (res, reason, message, code) => {
-    console.log("ERROR: " + reason);
-    res.status(code || 500).json({"error": message});
-}
-
 /**
  * Search for IP address geographic coordinates based on a range of longitudes.
  * 
@@ -18,12 +12,13 @@ exports.searchByLongitude = (req, res) => {
     let min = Number(req.query.minLon);
     let max = Number(req.query.maxLon);
     let body = [];
-    IPLocation.find({ longitude: { $gte : min , $lte : max } }, {'_id': 0} ).
-    stream().
-    on('data', (chunk) => {
+    
+    IPLocation.find({ longitude: { $gte : min , $lte : max } }, {'_id': 0} )
+    .stream()
+    .on('data', (chunk) => {
         body.push(chunk);
-    }).
-    on('end', () => {
+    })
+    .on('end', () => {
         res.status(200).send(body);
     });
 };
