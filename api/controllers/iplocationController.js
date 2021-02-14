@@ -25,6 +25,5 @@ exports.searchByLongitude = (req, res) => {
     }).
     on('end', () => {
         res.status(200).send(body);
-        console.log("DONE!");
     });
 };
