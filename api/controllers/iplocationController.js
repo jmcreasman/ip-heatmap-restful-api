@@ -17,12 +17,14 @@ const handleError = (res, reason, message, code) => {
 exports.searchByLongitude = (req, res) => {
     let min = Number(req.query.minLon);
     let max = Number(req.query.maxLon);
-
-    IPLocation.find({ longitude: { $gte : min , $lte : max } }, (err, locations) => {
-        if (err) {
-            handleError(res, err.message, "Failed to get locations");
-        } else {
-            res.status(200).json(locations);
-        }
+    let body = [];
+    IPLocation.find({ longitude: { $gte : min , $lte : max } }, {'_id': 0} ).
+    stream().
+    on('data', (chunk) => {
+        body.push(chunk);
+    }).
+    on('end', () => {
+        res.status(200).send(body);
+        console.log("DONE!");
     });
 };
