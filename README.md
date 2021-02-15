@@ -12,4 +12,5 @@ Run `nodemon server.js` for a local server. Navigate to `http://localhost:3000/`
 `searchByLongitude` - Search for IP address geographic coordinates based on a range of longitudes. Each object consists of - id: Object ID, latitude: number and longitude: number. Search parameters:
 - minLon: The minimal longitude number to search by in the range.
 - maxLon: The maximum longitude number to search by in the range.
+
 Example: `http://localhost:3000/iplocations?minLon=-180&maxLon=-170` would return all of the data objects that fell within longitude -180 through -170.
