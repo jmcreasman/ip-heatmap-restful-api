@@ -3,7 +3,7 @@ const  IPLocation = require("../models/iplocationModel");
 /**
  * Search for IP address geographic coordinates based on a range of longitudes.
  * 
- * Each object consists of - id: Object ID, latitude: number and longitude: number.
+ * Each object in the returned array consists of - latitude: number and longitude: number.
  * 
  * @param minLon: The minimal longitude number to search by in the range.
  * @param maxLon: The maximum longitude number to search by in the range.
