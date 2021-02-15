@@ -13,4 +13,4 @@ Run `nodemon server.js` for a local server. Navigate to `http://localhost:3000/`
 - minLon: The minimal longitude number to search by in the range.
 - maxLon: The maximum longitude number to search by in the range.
 
-Example: `http://localhost:3000/iplocations?minLon=-180&maxLon=-170` would return all of the data objects that fell within longitude -180 through -170.
+Example: `http://localhost:3000/iplocations?minLon=-180&maxLon=-170` would return an array of all of the data objects that fell within longitude -180 through -170.
